@@ -24,47 +24,88 @@ public class User {
     private static ArrayList<User> users = new ArrayList<>();
 
     public User() {
-        this.name = "";
+        this.name = "Unknown";
         this.age = 0;
         this.height = 0;
-        this.currentWeight = 0;
-        this.targetWeight = 0;
-        this.category = "";
+        this.currentWeight = 0.0;
+        this.targetWeight = 0.0;
+        this.category = "General";
         this.fitnessLevel = "Beginner";
         this.bmi = 0;
-        this.gender = "";
+        this.gender = "Not Specified";
+        this.timeframeMonths = 1;
+    }
+
+    // Parameterized Constructor (Easier instantiation)
+    public User(String name, int age, double height, double currentWeight, double targetWeight, String category, String fitnessLevel) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.currentWeight = currentWeight;
+        this.targetWeight = targetWeight;
+        this.category = category;
+        this.fitnessLevel = fitnessLevel;
+        this.gender = "Not Specified";
         this.timeframeMonths = 1;
     }
 
     // ================= Getters and Setters (Encapsulation) =================
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) { 
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name.trim(); 
+        }
+    }
 
     public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
+    public void setAge(int age) { 
+        if (age > 0 && age < 120) { // Basic validation
+            this.age = age; 
+        }
+    }
 
     public double getHeight() { return height; }
-    public void setHeight(double height) { this.height = height; }
+    public void setHeight(double height) { 
+        if (height > 0) {
+            this.height = height; 
+        }
+    }
 
     public double getCurrentWeight() { return currentWeight; }
-    public void setCurrentWeight(double weight) { this.currentWeight = weight; }
+    public void setCurrentWeight(double weight) { 
+        if (weight > 0) {
+            this.currentWeight = weight; 
+        }
+    }
 
     public double getTargetWeight() { return targetWeight; }
-    public void setTargetWeight(double weight) { this.targetWeight = weight; }
+    public void setTargetWeight(double weight) { 
+        if (weight > 0) {
+            this.targetWeight = weight; 
+        }
+    }
 
     public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public void setCategory(String category) { 
+        this.category = (category == null) ? "General" : category; 
+    }
 
     public String getFitnessLevel() { return fitnessLevel; }
-    public void setFitnessLevel(String level) { this.fitnessLevel = level; }
-
-    public double getBMI() { return bmi; }
+    public void setFitnessLevel(String level) { 
+        this.fitnessLevel = (level == null) ? "Beginner" : level; 
+    }
 
     public String getGender() { return gender; }
-    public void setGender(String gender) { this.gender = (gender == null) ? "" : gender; }
-
+    public void setGender(String gender) { 
+        this.gender = (gender == null || gender.trim().isEmpty()) ? "Not Specified" : gender; 
+    }
+    
     public int getTimeframeMonths() { return timeframeMonths; }
-    public void setTimeframeMonths(int months) { this.timeframeMonths = months; }
+    public void setTimeframeMonths(int months) { 
+        if (months > 0) {
+            this.timeframeMonths = months; 
+        }
+    }
 
     // ================= BMI =================
     public double calculateBMI() {
