@@ -1,13 +1,15 @@
+
 package myweightfitness;
 
 /**
  * CATEGORY: LOGIC
- * Tracks workout progression and recommends gradual increases (progressive overload).
- * Proposal methods: trackProgressiveLoad(), recommendNextLoad().
+ * Monitors workout improvements and suggests gradual load increases.
+ * Methods: trackProgressiveLoad(), recommendNextLoad().
  */
 public class ProgressiveLoadTracker {
-    private static final int TARGET_REPS = 12;        // at this many reps, add weight
-    private static final double WEIGHT_STEP = 2.5;    // kg added each time
+
+    private static final int TARGET_REPS = 12;
+    private static final double WEIGHT_INCREMENT = 2.5;
 
     private double currentWeight;
     private double previousWeight;
@@ -15,41 +17,71 @@ public class ProgressiveLoadTracker {
     private int previousReps;
     private boolean hasRecord = false;
 
-    /** Records a session and returns how it compares with the last one. */
+    // Saves the workout details and checks the changes from the previous session.
     public String trackProgressiveLoad(double weight, int reps) {
+
         if (weight < 0 || reps <= 0) {
-            throw new IllegalArgumentException("Weight cannot be negative and reps must be at least 1.");
+            throw new IllegalArgumentException(
+                    "Invalid input. Weight must not be negative and reps must be at least 1."
+            );
         }
+
         previousWeight = currentWeight;
         previousReps = currentReps;
+
         currentWeight = weight;
         currentReps = reps;
 
         if (!hasRecord) {
             hasRecord = true;
-            return "First session recorded.";
+            return "Your first workout session has been recorded!";
         }
-        return String.format("Change since last session: %+.1f kg, %+d reps",
-                currentWeight - previousWeight, currentReps - previousReps);
+
+        return String.format(
+                "Progress from last session: %+.1f kg, %+d reps",
+                currentWeight - previousWeight,
+                currentReps - previousReps
+        );
     }
 
-    /** Suggests what to do next session. */
+    // Provides a recommendation for the next workout session.
     public String recommendNextLoad() {
+
         if (!hasRecord) {
-            return "No workout recorded yet.";
+            return "No workout records available yet.";
         }
-        if (currentWeight == 0) { // bodyweight exercise
-            return "Next session: aim for " + (currentReps + 2) + " reps.";
+
+        if (currentWeight == 0) {
+            return "Next session: Try to complete "
+                    + (currentReps + 2) + " reps.";
         }
+
         if (currentReps >= TARGET_REPS) {
-            return "Next session: increase to " + (currentWeight + WEIGHT_STEP)
-                    + " kg and start again at " + (TARGET_REPS - 4) + " reps.";
+            return "Next session: Increase your weight to "
+                    + (currentWeight + WEIGHT_INCREMENT)
+                    + " kg and begin with "
+                    + (TARGET_REPS - 4) + " reps.";
         }
-        return "Next session: keep " + currentWeight + " kg and aim for " + (currentReps + 1) + " reps.";
+
+        return "Next session: Maintain "
+                + currentWeight + " kg and aim for "
+                + (currentReps + 1) + " reps.";
     }
 
-    public double getCurrentWeight() { return currentWeight; }
-    public double getPreviousWeight() { return previousWeight; }
-    public int getCurrentReps() { return currentReps; }
-    public int getPreviousReps() { return previousReps; }
+    // Getter methods
+    public double getCurrentWeight() {
+        return currentWeight;
+    }
+
+    public double getPreviousWeight() {
+        return previousWeight;
+    }
+
+    public int getCurrentReps() {
+        return currentReps;
+    }
+
+    public int getPreviousReps() {
+        return previousReps;
+    }
 }
