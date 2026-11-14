@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * and the CRUD methods from the proposal: addUser(), editUser(), deleteUser().
  */
 public class User {
-    // Encapsulation - private attributes
+    // Encapsulation - private attributesbhh
     private String name;
     private int age;
     private double height;        // in cm
