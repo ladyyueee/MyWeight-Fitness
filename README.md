@@ -90,12 +90,6 @@ This project models user profiles, fitness categories, workout plans, and progre
 	<li>Run the application from the terminal (e.g., <code>java -cp out myweightfitness.Main</code>).</li>
 </ol>
 
-<h2>‧₊˚ ┊ UML Class Diagram</h2>
-<p>
-See the <code>docs</code> folder for the UML class diagram and its Mermaid source code.
-</p>
-<img src = "docs/UMLDiagram.png" alt = "MyWeight Fitness UML Class Diagram">
-
 <h2>‧₊˚ ┊ Project Scope &amp; Limitations</h2>
 <p>
 This project is built for educational purposes as a Java Swing / OOP application and does not include medical diagnosis or treatment, smartwatch/wearable sensor integration, online consultations with doctors or trainers, online payments or subscriptions, food ordering/delivery, social/user-to-user messaging, automated physical exercise verification (users mark completion manually), or clinical/professional fitness replacements.
