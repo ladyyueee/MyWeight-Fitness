@@ -61,7 +61,7 @@ This project models user profiles, fitness categories, workout plans, and progre
 </ul>
 
 <h2>‧₊˚ ┊ Project Structure</h2>
-<pre><code>MyWeigh-Fitness/
+<pre><code>MyWeight-Fitness/
 ├── docs/
 │   └── UMLDiagram.md
 └── src/
@@ -89,7 +89,7 @@ This project models user profiles, fitness categories, workout plans, and progre
 
 <h2>‧₊˚ ┊ How to Run the Program</h2>
 <ol type = "1">
-	<li>Clone or download the repository (<code>ladyyueee/MyWeigh-Fitness</code>).</li>
+	<li>Clone or download the repository (<code>ladyyueee/MyWeight-Fitness</code>).</li>
 	<li>Open the project folder in your terminal.</li>
 	<li>Compile the Java source files into an output directory (e.g., <code>javac -d out src/myweightfitness/*.java</code>).</li>
 	<li>Run the application from the terminal (e.g., <code>java -cp out myweightfitness.Main</code>).</li>
