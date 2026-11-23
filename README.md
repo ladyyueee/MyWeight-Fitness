@@ -46,6 +46,11 @@ This project models user profiles, fitness categories, workout plans, and progre
 	</tr>
 </table>
 
+<h2>‧₊˚ ┊ Project Structure</h2>
+<img width="600" alt="Fitness Plan Management Framework-2026-11-22-113211" src="https://github.com/user-attachments/assets/20990a24-adf4-4bf8-98c3-f334b71c3fd1" />
+
+
+
 <h2>‧₊˚ ┊ Key Features</h2>
 <ul type = "circle">
 	<li><b>Profile Management (CRUD) &amp; BMI Calculator:</b> Add, view, edit, and delete user metrics (name, age, height, weight) and compute BMI.</li>
